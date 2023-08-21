@@ -1,4 +1,4 @@
-<ESIAFindAccountRequest xmlns="urn://mincomsvyaz/esia/reg_service/find_account/1.4.6" xmlns:ns2="urn://mincomsvyaz/esia/commons/rg_sevices_types/1.4.6" xmlns:ns3="urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1" xmlns:ns4="urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.1">
+<ESIAFindAccountRequest xmlns:ns2="urn://mincomsvyaz/esia/commons/rg_sevices_types/1.4.6">
 	<RoutingCode>TESIA</RoutingCode>
 	<SnilsOperator>328-807-072 90</SnilsOperator>
 	<ra>1000583622</ra>

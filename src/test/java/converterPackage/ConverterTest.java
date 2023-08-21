@@ -1,5 +1,6 @@
 package converterPackage;
 
+import entyties.EsiaFindAccRequest;
 import org.junit.jupiter.api.Test;
 import org.xml.sax.SAXException;
 
@@ -17,16 +18,14 @@ class ConverterTest {
 
     @Test
     void xmlToPojo() {
-        try {
-            Converter.xmlToPojo("src/main/resources/esia_xml/request.xml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
+        EsiaFindAccRequest pojo =  Converter.xmlToPojo("src/main/resources/esia_xml/request.xml");
+        System.out.println(pojo.toString());
+
+    }
+
+    @Test
+    void pojoToJson() {
+        EsiaFindAccRequest pojo =  Converter.xmlToPojo("src/main/resources/esia_xml/request.xml");
+        Converter.pojoToJson(pojo,"src/main/resources/json_files_directory/request.json");
     }
 }
