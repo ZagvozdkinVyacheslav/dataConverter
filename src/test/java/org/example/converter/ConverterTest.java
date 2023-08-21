@@ -1,4 +1,4 @@
-package org.example.converterPackage;
+package org.example.converter;
 
 import org.example.jaxb.esia.ESIAFindAccountRequest;
 import org.junit.jupiter.api.Test;
@@ -14,16 +14,14 @@ class ConverterTest {
 
     @Test
     void xmlToPojo() throws IOException, JAXBException {
-        var converter = new Converter();
-        var pojo = converter.xmlToPojo("src/main/resources/esia_xml/request.xml", ESIAFindAccountRequest.class);
+        var pojo = Converter.xmlToPojo("src/main/resources/esia_xml/request.xml", ESIAFindAccountRequest.class);
         System.out.println(pojo.toString());
 
     }
 
     @Test
     void pojoToJson() throws IOException, JAXBException {
-        var converter = new Converter();
-        var pojo = converter.xmlToPojo("src/main/resources/esia_xml/request.xml", ESIAFindAccountRequest.class);
-        converter.pojoToJson(pojo, "src/main/resources/json_files_directory/request.json");
+        var pojo = Converter.xmlToPojo("src/main/resources/esia_xml/request.xml", ESIAFindAccountRequest.class);
+        Converter.pojoToJson(pojo, "src/main/resources/json_files_directory/request.json");
     }
 }

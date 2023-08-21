@@ -1,7 +1,6 @@
-package org.example.converterPackage;
+package org.example.converter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jaxb.esia.ESIAFindAccountRequest;
 
@@ -18,10 +17,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Slf4j
-@NoArgsConstructor
 public class Converter {
 
-    public <T> T xmlToPojo(String xmlPath, Class<T> classType) throws IOException, JAXBException {
+    private Converter() {
+    }
+
+    public static <T> T xmlToPojo(String xmlPath, Class<T> classType) throws IOException, JAXBException {
 
         String xmlString = Files.readString(Paths.get(xmlPath), StandardCharsets.UTF_8);
         try {
@@ -34,7 +35,7 @@ public class Converter {
         }
     }
 
-    public void pojoToJson(ESIAFindAccountRequest obj, String jsonPath) {
+    public static void pojoToJson(ESIAFindAccountRequest obj, String jsonPath) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File(jsonPath), obj);
