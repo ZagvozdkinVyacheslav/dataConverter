@@ -1,4 +1,4 @@
-package entyties;
+package org.example.jaxb.esia;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.*;
 @Setter
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "",propOrder = {
         "type",
         "series",
         "number",
@@ -22,18 +22,13 @@ import javax.xml.bind.annotation.*;
         "expiryDate",
         "issuedBy"
 })
+@XmlRootElement(name = "doc")
 public class Document {
-    @XmlElement(name = "type")
     String type;
-    @XmlElement(name = "series")
     String series;
-    @XmlElement(name = "number")
     String number;
-    @XmlElement(name = "issueDate")
     String issueDate;
-    @XmlElement(name = "expiryDate")
     String expiryDate;
-    @XmlElement(name = "issuedBy")
     String issuedBy;
 
     void beforeUnmarshal(Unmarshaller unmarshaller, Object parent) {

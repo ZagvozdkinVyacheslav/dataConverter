@@ -1,4 +1,4 @@
-package entyties;
+package org.example.jaxb.esia;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.*;
 @Setter
 @ToString
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "",namespace = "src/main/resources/esia_xsd",propOrder = {
+@XmlType(name = "",propOrder = {
         "RoutingCode",
         "SnilsOperator",
         "ra",
@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.*;
 })
 @XmlRootElement(name = "ESIAFindAccountRequest")
 
-public class EsiaFindAccRequest {
+public class ESIAFindAccountRequest {
     private String RoutingCode;
     private String SnilsOperator;
     private Integer ra;
@@ -35,3 +35,4 @@ public class EsiaFindAccRequest {
     private String snils;
 
 }
+
