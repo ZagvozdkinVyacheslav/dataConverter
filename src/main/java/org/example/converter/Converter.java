@@ -17,13 +17,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Slf4j
-public class Converter {
+public class Converter<T> {
 
-    private Converter() {
+    public Converter() {
     }
 
     public static <T> T xmlToPojo(String xmlPath, Class<T> classType) throws IOException, JAXBException {
-
         String xmlString = Files.readString(Paths.get(xmlPath), StandardCharsets.UTF_8);
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(classType);
@@ -35,7 +34,7 @@ public class Converter {
         }
     }
 
-    public static void pojoToJson(ESIAFindAccountRequest obj, String jsonPath) {
+    public void pojoToJson(T obj, String jsonPath) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File(jsonPath), obj);
